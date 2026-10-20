@@ -35,16 +35,11 @@ export function JobCard({ job }: JobCardProps) {
             <View key={step} style={styles.stepWrap}>
               <View style={styles.stepRow}>
                 {i > 0 && (
-                  <View
-                    style={[styles.connector, (isDone || isCurrent) && styles.connectorDone]}
-                  />
+                  <View style={[styles.connector, (isDone || isCurrent) && styles.connectorDone]} />
                 )}
                 <View
-                  style={[
-                    styles.dot,
-                    isDone && styles.dotDone,
-                    isCurrent && styles.dotCurrent,
-                  ]}>
+                  style={[styles.dot, isDone && styles.dotDone, isCurrent && styles.dotCurrent]}
+                >
                   {isDone && <Check size={11} color="#FFFFFF" strokeWidth={3} />}
                 </View>
                 {i < MILESTONES.length - 1 && (
@@ -53,7 +48,8 @@ export function JobCard({ job }: JobCardProps) {
               </View>
               <Text
                 style={[styles.stepLabel, isCurrent && styles.stepLabelCurrent]}
-                numberOfLines={1}>
+                numberOfLines={1}
+              >
                 {isCurrent || isDone ? step : ''}
               </Text>
             </View>
@@ -88,7 +84,11 @@ const styles = StyleSheet.create({
     color: theme.colors.text,
   },
   meta: { fontSize: theme.fontSize.caption, color: theme.colors.textSecondary, marginTop: 2 },
-  pct: { fontSize: theme.fontSize.body, fontWeight: theme.fontWeight.bold, color: theme.colors.accent },
+  pct: {
+    fontSize: theme.fontSize.body,
+    fontWeight: theme.fontWeight.bold,
+    color: theme.colors.accent,
+  },
   stepper: { flexDirection: 'row', marginTop: theme.spacing.xl, marginBottom: theme.spacing.xs },
   stepWrap: { flex: 1, alignItems: 'center' },
   stepRow: { flexDirection: 'row', alignItems: 'center', width: '100%' },

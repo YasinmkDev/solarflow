@@ -19,6 +19,7 @@
 
 **Primary user:** owner of a small solar installation business (2–10 staff) in Pakistan.
 His day in the app, in priority order:
+
 1. Morning: "What needs my attention today?" — overdue payments, today's installations, new leads.
 2. In the field / shop: "Make a quotation for this customer in under 2 minutes."
 3. Evening: "Who still owes me money, and how much did we collect this month?"
@@ -28,6 +29,7 @@ His day in the app, in priority order:
 ## 4. Information architecture
 
 Bottom tabs (thumb-first, 4 + centre action):
+
 - **Home** — attention dashboard: greeting, collected-this-month, attention list, pipeline summary, today's jobs, recent payments.
 - **Leads** — pipeline by stage (New, Survey, Quoted, Won) with stage filter chips, each card one tap to customer detail.
 - **＋ Quote** (centre action) — quotation builder: system size stepper, panel/inverter/battery pickers, live itemised total, customer-ready summary.

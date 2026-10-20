@@ -40,7 +40,8 @@ export default function HomeScreen() {
               accessibilityRole="button"
               accessibilityLabel="Notifications and Pro"
               style={styles.bell}
-              hitSlop={8}>
+              hitSlop={8}
+            >
               <Bell size={21} color={theme.colors.text} />
               <View style={styles.dot} />
             </Pressable>
@@ -51,7 +52,11 @@ export default function HomeScreen() {
           <Card style={styles.collectedCard}>
             <View style={styles.collectedMain}>
               <Text style={styles.label}>Collected this month</Text>
-              <AnimatedNumber value={BUSINESS.monthCollected} format={rs} style={styles.bigNumber} />
+              <AnimatedNumber
+                value={BUSINESS.monthCollected}
+                format={rs}
+                style={styles.bigNumber}
+              />
               <Text style={styles.sub}>
                 of {rs(BUSINESS.monthTarget)} target · {Math.round(targetPct * 100)}%
               </Text>
@@ -141,7 +146,8 @@ export default function HomeScreen() {
                 onPress={() => router.push(`/customer/${payment.customerId}`)}
                 accessibilityRole="button"
                 accessibilityLabel={`${payment.name} paid ${rs(payment.amount)}`}
-                style={[styles.paymentRow, i > 0 && styles.paymentDivider]}>
+                style={[styles.paymentRow, i > 0 && styles.paymentDivider]}
+              >
                 <Avatar name={payment.name} size={38} />
                 <View style={styles.paymentMain}>
                   <Text style={styles.paymentName} numberOfLines={1}>
@@ -162,7 +168,8 @@ export default function HomeScreen() {
             onPress={() => router.push('/paywall')}
             accessibilityRole="button"
             accessibilityLabel="Upgrade to SolarFlow Pro"
-            style={({ pressed }) => [styles.proBanner, pressed && styles.pressed]}>
+            style={({ pressed }) => [styles.proBanner, pressed && styles.pressed]}
+          >
             <Sparkles size={19} color={theme.colors.accentDark} />
             <View style={styles.proMain}>
               <Text style={styles.proTitle}>You are on the Free plan — 5 of 5 jobs used</Text>
@@ -196,7 +203,8 @@ function AttentionRow({
       onPress={onPress}
       accessibilityRole="button"
       accessibilityLabel={title}
-      style={[styles.attentionRow, divider && styles.attentionDivider]}>
+      style={[styles.attentionRow, divider && styles.attentionDivider]}
+    >
       <View style={[styles.attentionIcon, { backgroundColor: tint }]}>{icon}</View>
       <View style={styles.attentionMain}>
         <Text style={styles.attentionTitle} numberOfLines={2}>
@@ -256,7 +264,11 @@ const styles = StyleSheet.create({
     marginTop: theme.spacing.xs,
   },
   sub: { fontSize: theme.fontSize.caption, color: theme.colors.textSecondary, marginTop: 2 },
-  ringText: { fontSize: theme.fontSize.section, fontWeight: theme.fontWeight.bold, color: theme.colors.text },
+  ringText: {
+    fontSize: theme.fontSize.section,
+    fontWeight: theme.fontWeight.bold,
+    color: theme.colors.text,
+  },
   statRow: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -273,7 +285,12 @@ const styles = StyleSheet.create({
   },
   statDanger: { color: theme.colors.danger },
   statLabel: { fontSize: 12, color: theme.colors.textSecondary, marginTop: 2 },
-  divider: { width: 1, height: 30, backgroundColor: theme.colors.border, marginHorizontal: theme.spacing.md },
+  divider: {
+    width: 1,
+    height: 30,
+    backgroundColor: theme.colors.border,
+    marginHorizontal: theme.spacing.md,
+  },
   attentionCard: { overflow: 'hidden' },
   attentionRow: {
     flexDirection: 'row',
@@ -297,7 +314,11 @@ const styles = StyleSheet.create({
     color: theme.colors.text,
     lineHeight: 19,
   },
-  attentionSub: { fontSize: theme.fontSize.caption, color: theme.colors.textSecondary, marginTop: 2 },
+  attentionSub: {
+    fontSize: theme.fontSize.caption,
+    color: theme.colors.textSecondary,
+    marginTop: 2,
+  },
   chartTitle: {
     fontSize: theme.fontSize.caption,
     color: theme.colors.textSecondary,
@@ -318,7 +339,11 @@ const styles = StyleSheet.create({
     fontWeight: theme.fontWeight.semibold,
     color: theme.colors.text,
   },
-  paymentMeta: { fontSize: theme.fontSize.caption, color: theme.colors.textSecondary, marginTop: 2 },
+  paymentMeta: {
+    fontSize: theme.fontSize.caption,
+    color: theme.colors.textSecondary,
+    marginTop: 2,
+  },
   paymentAmount: {
     fontSize: theme.fontSize.small,
     fontWeight: theme.fontWeight.bold,

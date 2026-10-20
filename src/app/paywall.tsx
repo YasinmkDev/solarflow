@@ -40,14 +40,16 @@ export default function PaywallScreen() {
             onPress={() => setYearly(false)}
             accessibilityRole="button"
             accessibilityState={{ selected: !yearly }}
-            style={[styles.toggleOption, !yearly && styles.toggleOptionActive]}>
+            style={[styles.toggleOption, !yearly && styles.toggleOptionActive]}
+          >
             <Text style={[styles.toggleLabel, !yearly && styles.toggleLabelActive]}>Monthly</Text>
           </Pressable>
           <Pressable
             onPress={() => setYearly(true)}
             accessibilityRole="button"
             accessibilityState={{ selected: yearly }}
-            style={[styles.toggleOption, yearly && styles.toggleOptionActive]}>
+            style={[styles.toggleOption, yearly && styles.toggleOptionActive]}
+          >
             <Text style={[styles.toggleLabel, yearly && styles.toggleLabelActive]}>
               Yearly · save 17%
             </Text>
@@ -89,10 +91,7 @@ export default function PaywallScreen() {
           </View>
         ) : (
           <View style={styles.cta}>
-            <PrimaryButton
-              label="Start 7-day free trial"
-              onPress={() => setTrialStarted(true)}
-            />
+            <PrimaryButton label="Start 7-day free trial" onPress={() => setTrialStarted(true)} />
             <View style={styles.restore}>
               <GhostButton label="Restore purchase" onPress={() => {}} />
             </View>
@@ -151,10 +150,19 @@ const styles = StyleSheet.create({
     color: theme.colors.accent,
     textTransform: 'uppercase',
   },
-  priceRow: { flexDirection: 'row', alignItems: 'baseline', gap: theme.spacing.xs, marginTop: theme.spacing.sm },
+  priceRow: {
+    flexDirection: 'row',
+    alignItems: 'baseline',
+    gap: theme.spacing.xs,
+    marginTop: theme.spacing.sm,
+  },
   price: { fontSize: 34, fontWeight: theme.fontWeight.bold, color: theme.colors.text },
   per: { fontSize: theme.fontSize.body, color: theme.colors.textSecondary },
-  trialNote: { fontSize: theme.fontSize.caption, color: theme.colors.textSecondary, marginTop: theme.spacing.xs },
+  trialNote: {
+    fontSize: theme.fontSize.caption,
+    color: theme.colors.textSecondary,
+    marginTop: theme.spacing.xs,
+  },
   featureList: { marginTop: theme.spacing.xl, gap: theme.spacing.md },
   featureRow: { flexDirection: 'row', alignItems: 'center', gap: theme.spacing.md },
   checkIcon: {
@@ -165,7 +173,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  featureText: { flex: 1, fontSize: theme.fontSize.small, color: theme.colors.text, lineHeight: 19 },
+  featureText: {
+    flex: 1,
+    fontSize: theme.fontSize.small,
+    color: theme.colors.text,
+    lineHeight: 19,
+  },
   cta: { marginTop: theme.spacing.xxl },
   restore: { marginTop: theme.spacing.md },
   successCard: {
@@ -178,8 +191,17 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
   },
   successMain: { flex: 1 },
-  successTitle: { fontSize: theme.fontSize.small, fontWeight: theme.fontWeight.bold, color: theme.colors.success },
-  successSub: { fontSize: theme.fontSize.caption, color: theme.colors.textSecondary, marginTop: 2, lineHeight: 17 },
+  successTitle: {
+    fontSize: theme.fontSize.small,
+    fontWeight: theme.fontWeight.bold,
+    color: theme.colors.success,
+  },
+  successSub: {
+    fontSize: theme.fontSize.caption,
+    color: theme.colors.textSecondary,
+    marginTop: 2,
+    lineHeight: 17,
+  },
   finePrint: {
     fontSize: 12,
     color: theme.colors.textTertiary,

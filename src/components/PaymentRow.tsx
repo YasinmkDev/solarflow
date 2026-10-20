@@ -22,7 +22,8 @@ export function PaymentRow({ customer, onPress }: PaymentRowProps) {
       onPress={onPress}
       accessibilityRole="button"
       accessibilityLabel={`${customer.name}, paid ${rs(customer.paid)} of ${rs(customer.totalPrice)}`}
-      style={({ pressed }) => [styles.row, pressed && styles.pressed]}>
+      style={({ pressed }) => [styles.row, pressed && styles.pressed]}
+    >
       <Avatar name={customer.name} size={40} />
       <View style={styles.main}>
         <View style={styles.topLine}>
@@ -58,7 +59,12 @@ const styles = StyleSheet.create({
   },
   pressed: { opacity: 0.7 },
   main: { flex: 1, gap: theme.spacing.sm },
-  topLine: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: theme.spacing.sm },
+  topLine: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: theme.spacing.sm,
+  },
   name: {
     flex: 1,
     fontSize: theme.fontSize.body,

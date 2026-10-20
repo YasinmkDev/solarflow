@@ -1,10 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Animated, {
-  useAnimatedProps,
-  useSharedValue,
-  withTiming,
-} from 'react-native-reanimated';
+import Animated, { useAnimatedProps, useSharedValue, withTiming } from 'react-native-reanimated';
 import Svg, { Line, Path } from 'react-native-svg';
 
 import { theme } from '../theme/theme';
@@ -58,9 +54,7 @@ export function RevenueChart({ data, labels, height = 150 }: RevenueChartProps) 
 
   return (
     <View>
-      <View
-        style={{ height }}
-        onLayout={(e) => setWidth(e.nativeEvent.layout.width)}>
+      <View style={{ height }} onLayout={(e) => setWidth(e.nativeEvent.layout.width)}>
         {width > 0 && (
           <Svg width={width} height={height}>
             <Path d={area} fill={theme.colors.accent} opacity={0.08} />

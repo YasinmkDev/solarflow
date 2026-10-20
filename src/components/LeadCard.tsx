@@ -27,7 +27,8 @@ export function LeadCard({ lead, onPress }: LeadCardProps) {
       onPress={onPress}
       accessibilityRole="button"
       accessibilityLabel={`${lead.name}, ${lead.systemKw} kilowatt, ${stage.label}`}
-      style={({ pressed }) => pressed && styles.pressed}>
+      style={({ pressed }) => pressed && styles.pressed}
+    >
       <Card style={styles.card}>
         <View style={styles.topRow}>
           <Avatar name={lead.name} />

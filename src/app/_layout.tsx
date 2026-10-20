@@ -18,13 +18,11 @@ export default function RootLayout() {
           headerTintColor: theme.colors.text,
           headerShadowVisible: false,
           contentStyle: { backgroundColor: theme.colors.canvas },
-        }}>
+        }}
+      >
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="customer/[id]" options={{ title: 'Customer' }} />
-        <Stack.Screen
-          name="paywall"
-          options={{ title: 'SolarFlow Pro', presentation: 'modal' }}
-        />
+        <Stack.Screen name="paywall" options={{ title: 'SolarFlow Pro', presentation: 'modal' }} />
       </Stack>
     </>
   );

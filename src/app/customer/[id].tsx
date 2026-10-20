@@ -58,10 +58,7 @@ export default function CustomerScreen() {
         </AnimatedIn>
         <AnimatedIn index={2}>
           <View style={styles.cta}>
-            <PrimaryButton
-              label="Build quotation"
-              onPress={() => router.push('/(tabs)/quote')}
-            />
+            <PrimaryButton label="Build quotation" onPress={() => router.push('/(tabs)/quote')} />
           </View>
         </AnimatedIn>
       </ScrollView>
@@ -84,7 +81,11 @@ export default function CustomerScreen() {
               {c.area} · {c.phone}
             </Text>
           </View>
-          {due <= 0 ? <Chip label="Paid in full" tone="success" /> : <Chip label="Balance due" tone="danger" />}
+          {due <= 0 ? (
+            <Chip label="Paid in full" tone="success" />
+          ) : (
+            <Chip label="Balance due" tone="danger" />
+          )}
         </View>
       </AnimatedIn>
 
@@ -123,11 +124,16 @@ export default function CustomerScreen() {
             </View>
             <View style={styles.payRight}>
               <Text style={styles.payLabel}>Still due</Text>
-              <Text style={[styles.payValue, due > 0 && styles.payDue]}>{rs(Math.max(due, 0))}</Text>
+              <Text style={[styles.payValue, due > 0 && styles.payDue]}>
+                {rs(Math.max(due, 0))}
+              </Text>
             </View>
           </View>
           <View style={styles.progressWrap}>
-            <ProgressBar value={pct} color={due <= 0 ? theme.colors.success : theme.colors.accent} />
+            <ProgressBar
+              value={pct}
+              color={due <= 0 ? theme.colors.success : theme.colors.accent}
+            />
           </View>
           <Text style={styles.paySub}>
             Total contract {rs(c.totalPrice)} · {Math.round(pct * 100)}% collected
@@ -185,11 +191,23 @@ const styles = StyleSheet.create({
     gap: theme.spacing.md,
     padding: theme.spacing.xl,
   },
-  emptyTitle: { fontSize: theme.fontSize.title, fontWeight: theme.fontWeight.bold, color: theme.colors.text },
-  emptyText: { fontSize: theme.fontSize.small, color: theme.colors.textSecondary, marginBottom: theme.spacing.lg },
+  emptyTitle: {
+    fontSize: theme.fontSize.title,
+    fontWeight: theme.fontWeight.bold,
+    color: theme.colors.text,
+  },
+  emptyText: {
+    fontSize: theme.fontSize.small,
+    color: theme.colors.textSecondary,
+    marginBottom: theme.spacing.lg,
+  },
   identity: { flexDirection: 'row', alignItems: 'center', gap: theme.spacing.md },
   identityMain: { flex: 1 },
-  name: { fontSize: theme.fontSize.title, fontWeight: theme.fontWeight.bold, color: theme.colors.text },
+  name: {
+    fontSize: theme.fontSize.title,
+    fontWeight: theme.fontWeight.bold,
+    color: theme.colors.text,
+  },
   meta: { fontSize: theme.fontSize.caption, color: theme.colors.textSecondary, marginTop: 2 },
   savingsCard: {
     flexDirection: 'row',
@@ -208,8 +226,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   savingsMain: { flex: 1 },
-  savingsValue: { fontSize: theme.fontSize.small, fontWeight: theme.fontWeight.bold, color: theme.colors.success },
-  savingsSub: { fontSize: theme.fontSize.caption, color: theme.colors.textSecondary, marginTop: 2, lineHeight: 17 },
+  savingsValue: {
+    fontSize: theme.fontSize.small,
+    fontWeight: theme.fontWeight.bold,
+    color: theme.colors.success,
+  },
+  savingsSub: {
+    fontSize: theme.fontSize.caption,
+    color: theme.colors.textSecondary,
+    marginTop: 2,
+    lineHeight: 17,
+  },
   specRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -229,10 +256,19 @@ const styles = StyleSheet.create({
   payTotals: { flexDirection: 'row', justifyContent: 'space-between' },
   payRight: { alignItems: 'flex-end' },
   payLabel: { fontSize: theme.fontSize.caption, color: theme.colors.textSecondary },
-  payValue: { fontSize: theme.fontSize.section, fontWeight: theme.fontWeight.bold, color: theme.colors.text, marginTop: 2 },
+  payValue: {
+    fontSize: theme.fontSize.section,
+    fontWeight: theme.fontWeight.bold,
+    color: theme.colors.text,
+    marginTop: 2,
+  },
   payDue: { color: theme.colors.danger },
   progressWrap: { marginTop: theme.spacing.lg },
-  paySub: { fontSize: theme.fontSize.caption, color: theme.colors.textSecondary, marginTop: theme.spacing.md },
+  paySub: {
+    fontSize: theme.fontSize.caption,
+    color: theme.colors.textSecondary,
+    marginTop: theme.spacing.md,
+  },
   reminderBtn: { marginTop: theme.spacing.lg },
   sentRow: {
     flexDirection: 'row',
@@ -252,7 +288,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  sentText: { fontSize: theme.fontSize.small, fontWeight: theme.fontWeight.semibold, color: theme.colors.success },
+  sentText: {
+    fontSize: theme.fontSize.small,
+    fontWeight: theme.fontWeight.semibold,
+    color: theme.colors.success,
+  },
   callBtn: { marginTop: theme.spacing.xxl },
   callHint: {
     flexDirection: 'row',

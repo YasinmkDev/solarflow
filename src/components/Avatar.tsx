@@ -20,10 +20,9 @@ export function Avatar({ name, size = 44 }: AvatarProps) {
       style={[
         styles.circle,
         { width: size, height: size, borderRadius: size / 2, backgroundColor: TINTS[i] },
-      ]}>
-      <Text style={[styles.text, { color: INKS[i], fontSize: size * 0.36 }]}>
-        {initials(name)}
-      </Text>
+      ]}
+    >
+      <Text style={[styles.text, { color: INKS[i], fontSize: size * 0.36 }]}>{initials(name)}</Text>
     </View>
   );
 }

@@ -21,8 +21,10 @@ export default function QuoteScreen() {
   const [netMetering, setNetMetering] = useState(false);
   const [saved, setSaved] = useState(false);
 
-  const inverter = QUOTE_CATALOG.inverters.find((o) => o.id === inverterId) ?? QUOTE_CATALOG.inverters[0];
-  const battery = QUOTE_CATALOG.batteries.find((o) => o.id === batteryId) ?? QUOTE_CATALOG.batteries[0];
+  const inverter =
+    QUOTE_CATALOG.inverters.find((o) => o.id === inverterId) ?? QUOTE_CATALOG.inverters[0];
+  const battery =
+    QUOTE_CATALOG.batteries.find((o) => o.id === batteryId) ?? QUOTE_CATALOG.batteries[0];
 
   const lines = useMemo(() => {
     const items = [
@@ -63,7 +65,9 @@ export default function QuoteScreen() {
       <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
         <View style={styles.header}>
           <Text style={styles.title}>New quotation</Text>
-          <Text style={styles.subtitle}>Build a quote in under two minutes. Prices from your catalog.</Text>
+          <Text style={styles.subtitle}>
+            Build a quote in under two minutes. Prices from your catalog.
+          </Text>
         </View>
 
         <AnimatedIn index={0}>
@@ -74,7 +78,8 @@ export default function QuoteScreen() {
                 onPress={() => changeKw(kw - 1)}
                 accessibilityRole="button"
                 accessibilityLabel="Decrease system size"
-                style={styles.stepperBtn}>
+                style={styles.stepperBtn}
+              >
                 <Minus size={18} color={theme.colors.text} />
               </Pressable>
               <Text style={styles.kwValue}>{kw} kW</Text>
@@ -82,7 +87,8 @@ export default function QuoteScreen() {
                 onPress={() => changeKw(kw + 1)}
                 accessibilityRole="button"
                 accessibilityLabel="Increase system size"
-                style={styles.stepperBtn}>
+                style={styles.stepperBtn}
+              >
                 <Plus size={18} color={theme.colors.text} />
               </Pressable>
             </View>
@@ -93,7 +99,8 @@ export default function QuoteScreen() {
                   onPress={() => changeKw(preset)}
                   accessibilityRole="button"
                   accessibilityState={{ selected: kw === preset }}
-                  style={[styles.preset, kw === preset && styles.presetActive]}>
+                  style={[styles.preset, kw === preset && styles.presetActive]}
+                >
                   <Text style={[styles.presetLabel, kw === preset && styles.presetLabelActive]}>
                     {preset} kW
                   </Text>
@@ -185,10 +192,7 @@ export default function QuoteScreen() {
                 </Text>
               </View>
             ) : (
-              <PrimaryButton
-                label={`Save quote — ${rs(total)}`}
-                onPress={() => setSaved(true)}
-              />
+              <PrimaryButton label={`Save quote — ${rs(total)}`} onPress={() => setSaved(true)} />
             )}
           </View>
         </AnimatedIn>
@@ -212,7 +216,8 @@ function OptionRow({
       accessibilityRole="radio"
       accessibilityState={{ selected }}
       accessibilityLabel={`${option.label}, ${option.price === 0 ? 'free' : rs(option.price)}`}
-      style={({ pressed }) => pressed && styles.pressed}>
+      style={({ pressed }) => pressed && styles.pressed}
+    >
       <Card style={[styles.optionCard, selected && styles.optionCardSelected]}>
         <View style={[styles.radio, selected && styles.radioSelected]}>
           {selected && <View style={styles.radioDot} />}
@@ -231,10 +236,28 @@ const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: theme.colors.canvas },
   content: { padding: theme.spacing.xl, paddingBottom: theme.spacing.xxxl },
   header: { marginBottom: theme.spacing.xl },
-  title: { fontSize: theme.fontSize.display, fontWeight: theme.fontWeight.bold, color: theme.colors.text },
-  subtitle: { fontSize: theme.fontSize.small, color: theme.colors.textSecondary, marginTop: theme.spacing.xs, lineHeight: 20 },
-  label: { fontSize: theme.fontSize.caption, fontWeight: theme.fontWeight.medium, color: theme.colors.textSecondary },
-  stepperRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: theme.spacing.md },
+  title: {
+    fontSize: theme.fontSize.display,
+    fontWeight: theme.fontWeight.bold,
+    color: theme.colors.text,
+  },
+  subtitle: {
+    fontSize: theme.fontSize.small,
+    color: theme.colors.textSecondary,
+    marginTop: theme.spacing.xs,
+    lineHeight: 20,
+  },
+  label: {
+    fontSize: theme.fontSize.caption,
+    fontWeight: theme.fontWeight.medium,
+    color: theme.colors.textSecondary,
+  },
+  stepperRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginTop: theme.spacing.md,
+  },
   stepperBtn: {
     width: 48,
     height: 48,
@@ -258,7 +281,11 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.surface,
   },
   presetActive: { backgroundColor: theme.colors.text, borderColor: theme.colors.text },
-  presetLabel: { fontSize: theme.fontSize.caption, fontWeight: theme.fontWeight.semibold, color: theme.colors.textSecondary },
+  presetLabel: {
+    fontSize: theme.fontSize.caption,
+    fontWeight: theme.fontWeight.semibold,
+    color: theme.colors.textSecondary,
+  },
   presetLabelActive: { color: '#FFFFFF' },
   pressed: { opacity: 0.8 },
   optionCard: {
@@ -281,19 +308,53 @@ const styles = StyleSheet.create({
   radioSelected: { borderColor: theme.colors.accent },
   radioDot: { width: 10, height: 10, borderRadius: 5, backgroundColor: theme.colors.accent },
   optionMain: { flex: 1 },
-  optionLabel: { fontSize: theme.fontSize.small, fontWeight: theme.fontWeight.semibold, color: theme.colors.text },
-  optionDetail: { fontSize: theme.fontSize.caption, color: theme.colors.textSecondary, marginTop: 2 },
-  optionPrice: { fontSize: theme.fontSize.small, fontWeight: theme.fontWeight.bold, color: theme.colors.text },
-  toggleCard: { flexDirection: 'row', alignItems: 'center', gap: theme.spacing.md, marginTop: theme.spacing.lg },
+  optionLabel: {
+    fontSize: theme.fontSize.small,
+    fontWeight: theme.fontWeight.semibold,
+    color: theme.colors.text,
+  },
+  optionDetail: {
+    fontSize: theme.fontSize.caption,
+    color: theme.colors.textSecondary,
+    marginTop: 2,
+  },
+  optionPrice: {
+    fontSize: theme.fontSize.small,
+    fontWeight: theme.fontWeight.bold,
+    color: theme.colors.text,
+  },
+  toggleCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.spacing.md,
+    marginTop: theme.spacing.lg,
+  },
   toggleMain: { flex: 1 },
-  toggleTitle: { fontSize: theme.fontSize.small, fontWeight: theme.fontWeight.semibold, color: theme.colors.text },
+  toggleTitle: {
+    fontSize: theme.fontSize.small,
+    fontWeight: theme.fontWeight.semibold,
+    color: theme.colors.text,
+  },
   toggleSub: { fontSize: theme.fontSize.caption, color: theme.colors.textSecondary, marginTop: 2 },
-  line: { flexDirection: 'row', alignItems: 'flex-start', gap: theme.spacing.md, paddingVertical: theme.spacing.md },
+  line: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: theme.spacing.md,
+    paddingVertical: theme.spacing.md,
+  },
   lineDivider: { borderTopWidth: 1, borderTopColor: theme.colors.border },
   lineMain: { flex: 1 },
-  lineLabel: { fontSize: theme.fontSize.small, fontWeight: theme.fontWeight.medium, color: theme.colors.text },
+  lineLabel: {
+    fontSize: theme.fontSize.small,
+    fontWeight: theme.fontWeight.medium,
+    color: theme.colors.text,
+  },
   lineDetail: { fontSize: theme.fontSize.caption, color: theme.colors.textSecondary, marginTop: 2 },
-  lineAmount: { fontSize: theme.fontSize.small, fontWeight: theme.fontWeight.semibold, color: theme.colors.text },
+  lineAmount: {
+    fontSize: theme.fontSize.small,
+    fontWeight: theme.fontWeight.semibold,
+    color: theme.colors.text,
+  },
   totalRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -303,9 +364,22 @@ const styles = StyleSheet.create({
     paddingTop: theme.spacing.lg,
     marginTop: theme.spacing.xs,
   },
-  totalLabel: { fontSize: theme.fontSize.section, fontWeight: theme.fontWeight.semibold, color: theme.colors.text },
-  totalValue: { fontSize: theme.fontSize.title, fontWeight: theme.fontWeight.bold, color: theme.colors.text },
-  perKw: { fontSize: theme.fontSize.caption, color: theme.colors.textSecondary, marginTop: theme.spacing.xs, textAlign: 'right' },
+  totalLabel: {
+    fontSize: theme.fontSize.section,
+    fontWeight: theme.fontWeight.semibold,
+    color: theme.colors.text,
+  },
+  totalValue: {
+    fontSize: theme.fontSize.title,
+    fontWeight: theme.fontWeight.bold,
+    color: theme.colors.text,
+  },
+  perKw: {
+    fontSize: theme.fontSize.caption,
+    color: theme.colors.textSecondary,
+    marginTop: theme.spacing.xs,
+    textAlign: 'right',
+  },
   cta: { marginTop: theme.spacing.xxl },
   savedRow: {
     flexDirection: 'row',
@@ -324,5 +398,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  savedText: { flex: 1, fontSize: theme.fontSize.small, fontWeight: theme.fontWeight.medium, color: theme.colors.success },
+  savedText: {
+    flex: 1,
+    fontSize: theme.fontSize.small,
+    fontWeight: theme.fontWeight.medium,
+    color: theme.colors.success,
+  },
 });

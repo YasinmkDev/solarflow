@@ -310,10 +310,38 @@ export const SERVICE_VISITS: ServiceVisit[] = [
 ];
 
 export const PAYMENTS: Payment[] = [
-  { id: 'p1', customerId: 'c3', name: 'Dr Fazal Rahman', amount: 400000, method: 'Bank transfer', when: 'Today' },
-  { id: 'p2', customerId: 'c1', name: 'Haji Sher Muhammad', amount: 250000, method: 'Cash', when: 'Yesterday' },
-  { id: 'p3', customerId: 'c4', name: 'Umar Farooq', amount: 150000, method: 'JazzCash', when: '18 Oct' },
-  { id: 'p4', customerId: 'c2', name: 'Malak Bakht Zada', amount: 215000, method: 'Bank transfer', when: '15 Oct' },
+  {
+    id: 'p1',
+    customerId: 'c3',
+    name: 'Dr Fazal Rahman',
+    amount: 400000,
+    method: 'Bank transfer',
+    when: 'Today',
+  },
+  {
+    id: 'p2',
+    customerId: 'c1',
+    name: 'Haji Sher Muhammad',
+    amount: 250000,
+    method: 'Cash',
+    when: 'Yesterday',
+  },
+  {
+    id: 'p3',
+    customerId: 'c4',
+    name: 'Umar Farooq',
+    amount: 150000,
+    method: 'JazzCash',
+    when: '18 Oct',
+  },
+  {
+    id: 'p4',
+    customerId: 'c2',
+    name: 'Malak Bakht Zada',
+    amount: 215000,
+    method: 'Bank transfer',
+    when: '15 Oct',
+  },
 ];
 
 export interface QuoteOption {
@@ -324,19 +352,47 @@ export interface QuoteOption {
 }
 
 export const QUOTE_CATALOG = {
-  panelsPerKw: { label: 'Solar panels', detail: 'Longi 580W Hi-MO, per kW installed', perKw: 58000 },
+  panelsPerKw: {
+    label: 'Solar panels',
+    detail: 'Longi 580W Hi-MO, per kW installed',
+    perKw: 58000,
+  },
   inverters: [
-    { id: 'inv5', label: 'Inverex Nitrox 5kW hybrid', detail: 'Best for homes up to 5kW', price: 185000 },
+    {
+      id: 'inv5',
+      label: 'Inverex Nitrox 5kW hybrid',
+      detail: 'Best for homes up to 5kW',
+      price: 185000,
+    },
     { id: 'inv8', label: 'Inverex Nitrox 8kW hybrid', detail: 'For 6–8kW systems', price: 265000 },
-    { id: 'inv10', label: 'Inverex Nitrox 10kW hybrid', detail: 'For 10kW and above', price: 335000 },
+    {
+      id: 'inv10',
+      label: 'Inverex Nitrox 10kW hybrid',
+      detail: 'For 10kW and above',
+      price: 335000,
+    },
     { id: 'inv0', label: 'No inverter', detail: 'Customer already has one', price: 0 },
   ] as QuoteOption[],
   batteries: [
-    { id: 'bat5', label: 'Lithium 48V 100Ah (5.1 kWh)', detail: '10-year life, fast charging', price: 285000 },
-    { id: 'bat75', label: 'Lithium 48V 150Ah (7.7 kWh)', detail: 'For longer backup', price: 415000 },
+    {
+      id: 'bat5',
+      label: 'Lithium 48V 100Ah (5.1 kWh)',
+      detail: '10-year life, fast charging',
+      price: 285000,
+    },
+    {
+      id: 'bat75',
+      label: 'Lithium 48V 150Ah (7.7 kWh)',
+      detail: 'For longer backup',
+      price: 415000,
+    },
     { id: 'batT', label: 'Tubular 200Ah × 2', detail: 'Budget option, 2-year life', price: 118000 },
     { id: 'bat0', label: 'No battery', detail: 'On-grid / net metering only', price: 0 },
   ] as QuoteOption[],
-  extrasPerKw: { label: 'Structure, wiring & installation', detail: 'Galvanised frame, DC cabling, labour, per kW', perKw: 21000 },
+  extrasPerKw: {
+    label: 'Structure, wiring & installation',
+    detail: 'Galvanised frame, DC cabling, labour, per kW',
+    perKw: 21000,
+  },
   netMetering: { label: 'Net metering file & licence', detail: 'One-time, optional', price: 45000 },
 };

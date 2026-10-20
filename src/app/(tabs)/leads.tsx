@@ -45,10 +45,12 @@ export default function LeadsScreen() {
         horizontal
         showsHorizontalScrollIndicator={false}
         style={styles.chipScroll}
-        contentContainerStyle={styles.chipRow}>
+        contentContainerStyle={styles.chipRow}
+      >
         {FILTERS.map((f) => {
           const active = filter === f.id;
-          const count = f.id === 'all' ? LEADS.length : LEADS.filter((l) => l.stage === f.id).length;
+          const count =
+            f.id === 'all' ? LEADS.length : LEADS.filter((l) => l.stage === f.id).length;
           return (
             <Pressable
               key={f.id}
@@ -56,7 +58,8 @@ export default function LeadsScreen() {
               accessibilityRole="button"
               accessibilityState={{ selected: active }}
               accessibilityLabel={`${f.label}, ${count} leads`}
-              style={[styles.chip, active && styles.chipActive]}>
+              style={[styles.chip, active && styles.chipActive]}
+            >
               <Text style={[styles.chipLabel, active && styles.chipLabelActive]}>
                 {f.label} · {count}
               </Text>
@@ -90,8 +93,16 @@ export default function LeadsScreen() {
 const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: theme.colors.canvas },
   header: { paddingHorizontal: theme.spacing.xl, paddingTop: theme.spacing.sm },
-  title: { fontSize: theme.fontSize.display, fontWeight: theme.fontWeight.bold, color: theme.colors.text },
-  subtitle: { fontSize: theme.fontSize.small, color: theme.colors.textSecondary, marginTop: theme.spacing.xs },
+  title: {
+    fontSize: theme.fontSize.display,
+    fontWeight: theme.fontWeight.bold,
+    color: theme.colors.text,
+  },
+  subtitle: {
+    fontSize: theme.fontSize.small,
+    color: theme.colors.textSecondary,
+    marginTop: theme.spacing.xs,
+  },
   chipScroll: { flexGrow: 0, marginTop: theme.spacing.lg },
   chipRow: { paddingHorizontal: theme.spacing.xl, gap: theme.spacing.sm },
   chip: {

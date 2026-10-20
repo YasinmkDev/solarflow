@@ -21,7 +21,8 @@ export default function TabsLayout() {
           height: 62,
           paddingTop: 6,
         },
-      }}>
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
@@ -50,11 +51,9 @@ export default function TabsLayout() {
                 alignItems: 'center',
                 justifyContent: 'center',
                 marginTop: -6,
-              }}>
-              <FileText
-                size={20}
-                color={focused ? '#FFFFFF' : theme.colors.accentDark}
-              />
+              }}
+            >
+              <FileText size={20} color={focused ? '#FFFFFF' : theme.colors.accentDark} />
             </View>
           ),
           tabBarLabelStyle: {
