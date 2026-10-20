@@ -28,7 +28,7 @@ All sample data is realistic Pakistani solar business data (Swat names and areas
 
 ## Tech
 
-- Expo SDK 58 · React Native 0.88 · React 19 · TypeScript (strict)
+- Expo SDK 57 · React Native 0.86 · React 19.2 · TypeScript (strict) — SDK 57 matches the owner's Expo Go
 - Expo Router (file routes in `src/app/`), React Native Reanimated 4, react-native-svg
 - Native packages installed only via `npx expo install` (SDK-matched versions)
 
